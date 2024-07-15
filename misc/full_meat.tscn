@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0v3qmbw4r6xa"]
+
+[ext_resource type="PackedScene" uid="uid://d1h4pdir8q32a" path="res://misc/meat.tscn" id="1_x1o4e"]
+[ext_resource type="Texture2D" uid="uid://p3juwqg2nlnl" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/M_Spawn.png" id="2_dkfw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyajv"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en3oh"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk4l3"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgaa"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o0g3"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxnuk"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqhc6"]
+atlas = ExtResource("2_dkfw1")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pkelg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyajv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en3oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk4l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhgaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o0g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxnuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqhc6")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="Full_Meat" instance=ExtResource("1_x1o4e")]
+autoplay = "default"
+regeneration_amount = 100
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-28, -36)
+rotation = -0.785398
+sprite_frames = SubResource("SpriteFrames_pkelg")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 6
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(33.3333, -44.6667)
+rotation = 0.872665
+sprite_frames = SubResource("SpriteFrames_pkelg")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 6
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(9.33333, -68.6667)
+rotation = 0.199561
+sprite_frames = SubResource("SpriteFrames_pkelg")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 6
+frame_progress = 1.0

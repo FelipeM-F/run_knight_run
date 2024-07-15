@@ -1,0 +1,248 @@
+[gd_scene load_steps=19 format=3 uid="uid://5yt0mu6mg8mr"]
+
+[ext_resource type="Texture2D" uid="uid://oug566xtk7u3" path="res://addons/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_7h2fv"]
+[ext_resource type="Script" path="res://ui/game_over_ui.gd" id="1_lic5r"]
+[ext_resource type="Texture2D" uid="uid://ckqxna2p7u6fn" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="2_r023x"]
+[ext_resource type="Texture2D" uid="uid://c8gqyjb7bf0hf" path="res://addons/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="4_q7hl6"]
+[ext_resource type="Texture2D" uid="uid://df07qesqnmxxq" path="res://addons/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="5_ffw1g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4f3r"]
+texture = ExtResource("1_7h2fv")
+texture_margin_left = 64.0
+texture_margin_right = 64.0
+axis_stretch_horizontal = 2
+
+[sub_resource type="SystemFont" id="SystemFont_x4s5o"]
+font_names = PackedStringArray("Verdana")
+font_weight = 600
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xenqi"]
+line_spacing = 5.0
+font = SubResource("SystemFont_x4s5o")
+font_size = 58
+font_color = Color(0.302018, 0.087379, 0.056765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvu2g"]
+texture = ExtResource("2_r023x")
+texture_margin_left = 32.0
+texture_margin_top = 16.0
+texture_margin_right = 32.0
+texture_margin_bottom = 48.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[sub_resource type="Theme" id="Theme_aaqkg"]
+
+[sub_resource type="SystemFont" id="SystemFont_85nc0"]
+font_weight = 900
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ua2fy"]
+font = SubResource("SystemFont_85nc0")
+font_size = 30
+font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_i7xyx"]
+font_weight = 900
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3uqt"]
+content_margin_bottom = 15.0
+texture = ExtResource("4_q7hl6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3tkn"]
+content_margin_bottom = 15.0
+texture = ExtResource("4_q7hl6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rx8ov"]
+content_margin_bottom = 10.0
+texture = ExtResource("5_ffw1g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj8yd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dqik3"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+script = ExtResource("1_lic5r")
+
+[node name="Backgorund" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.756863)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.5
+offset_top = 43.0
+offset_right = 261.5
+offset_bottom = 193.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p4f3r")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -60.0
+offset_right = 180.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_xenqi")
+
+[node name="BottomPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -122.0
+offset_right = 372.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_mvu2g")
+
+[node name="CenterContainer" type="CenterContainer" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 15.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme = SubResource("Theme_aaqkg")
+
+[node name="GridContainer2" type="GridContainer" parent="BottomPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 0
+
+[node name="GridContainer" type="GridContainer" parent="BottomPanel/CenterContainer/GridContainer2"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="TimerLabel2" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+layout_mode = 2
+text = "Tempo de Jogo:"
+label_settings = SubResource("LabelSettings_ua2fy")
+
+[node name="TimerLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "14:55"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MonstersLabel2" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+layout_mode = 2
+text = "Monstros derrotados :"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 1
+
+[node name="MonstersLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " 40"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoldLabel2" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+layout_mode = 2
+text = "Ouro coletado:"
+label_settings = SubResource("LabelSettings_ua2fy")
+
+[node name="GoldLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " 0"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="BottomPanel/CenterContainer/GridContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
+alignment = 1
+editable = false
+middle_mouse_paste_enabled = false
+flat = true
+
+[node name="GridContainer3" type="GridContainer" parent="BottomPanel/CenterContainer/GridContainer2"]
+custom_minimum_size = Vector2(449, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+
+[node name="PointsLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(449, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pontuação Total: 50"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 1
+justification_flags = 161
+
+[node name="HighscoreLabel" type="Label" parent="BottomPanel/CenterContainer/GridContainer2/GridContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(449, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highscore: 5000"
+label_settings = SubResource("LabelSettings_ua2fy")
+horizontal_alignment = 1
+justification_flags = 161
+
+[node name="Button" type="Button" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 173.0
+offset_right = 96.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_i7xyx")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxTexture_q3uqt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v3tkn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rx8ov")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_uj8yd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_dqik3")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Reiniciar"
+
+[connection signal="pressed" from="BottomPanel/Button" to="." method="_on_button_pressed"]

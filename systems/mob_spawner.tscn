@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmr24m875dvrs"]
+
+[ext_resource type="Script" path="res://systems/mob_spawner.gd" id="1_gy72n"]
+[ext_resource type="PackedScene" uid="uid://eywoekmk5kr4" path="res://enemies/goblin.tscn" id="2_2iuj8"]
+[ext_resource type="PackedScene" uid="uid://t8bt6uanx1r1" path="res://enemies/pawn.tscn" id="3_j7d72"]
+[ext_resource type="PackedScene" uid="uid://i2nts0ph8r3a" path="res://enemies/sheep.tscn" id="4_2j4nk"]
+
+[sub_resource type="Curve2D" id="Curve2D_xlwvj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1419, -192, 0, 0, 0, 0, 1408, 951, 0, 0, 0, 0, -269, 951, 0, 0, 0, 0, -281, -187, 0, 0, 0, 0, 1412, -195, 0, 0, 0, 0, 1418, -194)
+}
+point_count = 6
+
+[node name="MobSpawner" type="Node2D"]
+position = Vector2(549, 292)
+script = ExtResource("1_gy72n")
+creatures = Array[PackedScene]([ExtResource("2_2iuj8"), ExtResource("3_j7d72"), ExtResource("4_2j4nk")])
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-549, -295)
+curve = SubResource("Curve2D_xlwvj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(1419, -192)
+rotation = 1.58042
+
+[node name="_Timer_25428" type="Timer" parent="Path2D/PathFollow2D"]
+wait_time = 0.2
+one_shot = true

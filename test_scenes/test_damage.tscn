@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlau5c3lusb0a"]
+
+[ext_resource type="PackedScene" uid="uid://felwljpuaeyf" path="res://Player/player.tscn" id="1_d2mdc"]
+[ext_resource type="PackedScene" uid="uid://eywoekmk5kr4" path="res://enemies/goblin.tscn" id="3_hwdth"]
+
+[node name="TestDamage" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d2mdc")]
+position = Vector2(324, 270)
+
+[node name="Goblin" parent="." instance=ExtResource("3_hwdth")]
+position = Vector2(783, 104)
+health = 40
